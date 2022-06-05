@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  php:
+    build: ./docker/php/
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    volumes:
+      - .:/var/www/html
