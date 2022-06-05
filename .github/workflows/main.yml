@@ -7,12 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: |
-        ls -l
-        docker build . --file ./docker/php/Dockerfile
+      run: docker build . --file ./docker/php/Dockerfile
+    - name: run container(s)
+      run: docker-compose up -d
+    - name: run container(s)
+      run: docker-compose run php symfony
